@@ -8,7 +8,7 @@ This app represent a wrapper to the [Apex model](http://onlinelibrary.wiley.com/
 python setup install
 ```
 
-## Runnin the test
+## Running the test
 
 ### Convert quasi-dipole to geodetic coordinates
 
