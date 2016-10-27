@@ -1,0 +1,118 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module apex ! in 
+    interface  ! in :apex
+        subroutine apex(date,dlat,dlon,alt,a,alat,alon,bmag,xmag,ymag,zmag,v) ! in :apex:apex.f
+            real, intent(in) :: date
+            real, intent(in) :: dlat
+            real, intent(in) :: dlon
+            real, intent(in) :: alt
+            real, intent(out) :: a
+            real, intent(out) :: alat
+            real, intent(out) :: alon
+            real, intent(out) :: bmag
+            real, intent(out) :: xmag
+            real, intent(out) :: ymag
+            real, intent(out) :: zmag
+            real, intent(out) :: v
+            real :: colat
+            real :: elon
+            real :: vp
+            real :: ctp
+            real :: stp
+            common /dipole/ colat,elon,vp,ctp,stp
+        end subroutine apex
+        subroutine linapx(gdlat,glon,alt,a,alat,alon,xmag,ymag,zmag,f) ! in :apex:apex.f
+            real :: gdlat
+            real :: glon
+            real :: alt
+            real :: a
+            real :: alat
+            real :: alon
+            real :: xmag
+            real :: ymag
+            real :: zmag
+            real :: f
+            real :: bx
+            real :: by
+            real :: bz
+            real :: bb
+            integer :: nstp
+            real dimension(3) :: y
+            real dimension(3) :: yp
+            real :: sgn
+            real :: ds
+            real dimension(3,3) :: yapx
+            real :: colat
+            real :: elon
+            real :: vp
+            real :: ctp
+            real :: stp
+            common /fldcomd/ bx,by,bz,bb
+            common /itra/ nstp,y,yp,sgn,ds
+            common /apxin/ yapx
+            common /dipole/ colat,elon,vp,ctp,stp
+        end subroutine linapx
+        subroutine itrace(iapx) ! in :apex:apex.f
+            integer :: iapx
+            real :: bx
+            real :: by
+            real :: bz
+            real :: bb
+            integer :: nstp
+            real dimension(3) :: y
+            real dimension(3) :: yold
+            real :: sgn
+            real :: ds
+            real dimension(3,3) :: yapx
+            common /fldcomd/ bx,by,bz,bb
+            common /itra/ nstp,y,yold,sgn,ds
+            common /apxin/ yapx
+        end subroutine itrace
+        subroutine fndapx(alt,zmag,a,alat,alon) ! in :apex:apex.f
+            real :: alt
+            real :: zmag
+            real :: a
+            real :: alat
+            real :: alon
+            real dimension(3,3) :: yapx
+            real :: colat
+            real :: elon
+            real :: vp
+            real :: ctp
+            real :: stp
+            common /apxin/ yapx
+            common /dipole/ colat,elon,vp,ctp,stp
+        end subroutine fndapx
+        subroutine dipapx(gdlat,gdlon,alt,bnorth,beast,bdown,a,alon) ! in :apex:apex.f
+            real :: gdlat
+            real :: gdlon
+            real :: alt
+            real :: bnorth
+            real :: beast
+            real :: bdown
+            real :: a
+            real :: alon
+            real :: colat
+            real :: elon
+            real :: vp
+            real :: ctp
+            real :: stp
+            common /dipole/ colat,elon,vp,ctp,stp
+        end subroutine dipapx
+        function fint(x1,x2,x3,y1,y2,y3,xfit) ! in :apex:apex.f
+            real :: x1
+            real :: x2
+            real :: x3
+            real :: y1
+            real :: y2
+            real :: y3
+            real :: xfit
+            real :: fint
+        end function fint
+    end interface 
+end python module apex
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
