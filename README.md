@@ -13,8 +13,8 @@ python setup install
 ### Convert quasi-dipole to geodetic coordinates
 
 ```
->>> import apexqd2gd
->>> apexqd2gd.qd2gd(0,0,0,2000,0)
+>>> import pyapex
+>>> pyapex.Convert().qdtogd(0,0,0,2000,0)
 (-12.57141399383545, -71.6852035522461, 4.1826197048067115e-06)
 ```
 
