@@ -35,15 +35,14 @@ end program qd2gdcoord
 !*******************************************************************************
 
 
-subroutine qd2gd(qlat,qlon,alt,epoch,prec,glat,glon,error)
+subroutine qd2gd(qlat,qlon,alt,epoch,prec,apexshfile,glat,glon,error)
 
   implicit none
 
-  character(128)	:: apexshfile='apexsh.dat'
+  character(256) :: apexshfile
   real(4)		:: epoch, prec, error
   real(4)		:: glat, glon, alt
   real(4)		:: qlat, qlon
-  
   ! Loading the expansion coefficients file
   call loadapxsh(apexshfile, epoch)
 

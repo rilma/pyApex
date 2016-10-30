@@ -3,12 +3,13 @@
 
 python module apexqd2gd ! in 
     interface  ! in :apexqd2gd
-        subroutine qd2gd(qlat,qlon,alt,epoch,prec,glat,glon,error) ! in :apexqd2gd:qd2gdcoord.f90
+        subroutine qd2gd(qlat,qlon,alt,epoch,prec,apexshfile,glat,glon,error) ! in :apexqd2gd:qd2gdcoord.f90
             real(kind=4), intent(in) :: qlat
             real(kind=4), intent(in) :: qlon
             real(kind=4), intent(in) :: alt
             real(kind=4), intent(in) :: epoch
             real(kind=4), intent(in) :: prec
+            character(256), intent(in) :: apexshfile
             real(kind=4), intent(out) :: glat
             real(kind=4), intent(out) :: glon
             real(kind=4), intent(out) :: error
