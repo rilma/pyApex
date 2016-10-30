@@ -21,7 +21,7 @@ python setup install
 ### Convert to apex coordinates
 
 ```
->>> import apex
+>>> from pyapex.apex import apex
 >>> apex.apex(2000,0,0,0)
 (1.0490329265594482, -12.485759735107422, 72.6435317993164, 31408.029296875, 27464.94140625, -3504.1533203125, -14827.7548828125, 21.084653854370117)
 ```
