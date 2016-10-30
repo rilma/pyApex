@@ -78,7 +78,7 @@ class ApexFL:
 
         r0 = hateq / REQ + 1.   # apex radius
 
-        # 1-array of geomag. latitude
+        # 1D-array geomag. latitude
         theta = arange(mlatRange[0], mlatRange[1] + mlatSTP, mlatSTP)
 
         # solving for altitude along dipole field-line
