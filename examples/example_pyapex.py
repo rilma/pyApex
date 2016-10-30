@@ -2,7 +2,6 @@
 from matplotlib.pyplot import figure, show
 import pyapex
 from scipy import arange, nan, where
-#from scipy.io import savemat
 
 if __name__ == '__main__':
 
@@ -27,9 +26,6 @@ if __name__ == '__main__':
             ind = where(y < hlim[0])
             if len(ind) > 0: x[ind], y[ind], z[ind] = nan, nan, nan
             pn.plot(x, y)
-
-#            if h == 130: savemat('./apex130heq.mat', {'gc' : gc, 'qc' : qc}, \
-#                do_compression=True, oned_as='column')
 
         pn.invert_xaxis()
         show()
