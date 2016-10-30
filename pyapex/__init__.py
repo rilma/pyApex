@@ -8,6 +8,8 @@ from scipy import arange, cos, nan, ones, pi, sin, where, zeros
 # full folder name
 folder = os.path.dirname(os.path.realpath(__file__))
 
+apexshfile = os.path.join(folder, 'apexsh.dat')
+
 # From WGS-84 ellipsoid model
 REQ = 6378.1370         # REQ = equatorial Earth radius
 RPO = 6356.7523         # RPO = polar Earth radius
@@ -33,6 +35,7 @@ def RGC(theta):
 
 class ApexFL:
 
+
     def __init__(self):
 
         pass
@@ -41,7 +44,7 @@ class ApexFL:
     def getFL(self, alt=0., date=2010., dlat=-11.95, dlon=-76.77, hateq=300., \
         mlatRange=[-10.17, 10.17], mlatSTP=.25, verbose=False):
 
-        """        
+        """
          Given a point "A" with geodetic coordinates (dlon, alt, dlat), this program estimates the
          geodetic coordinates of the geomagnetic field-line passing by this point, the equator, 
          and the conjugate hemisphere
@@ -86,18 +89,18 @@ class ApexFL:
         # their correspoding geodetic coord.
         #
 
-        epoch = date; prec = -1
+        epoch, prec = date, -1         
 
         nz = len(theta)
 
-        glat = zeros(nz); glon = zeros(nz)
-        qlat = theta; qlon = alon * ones(nz)
+        glon, glat = zeros(nz), zeros(nz)
+        qlat = theta
+        qlon = alon * ones(nz)
 
         if verbose: print( '\n' )
         for i in range(nz):
             alt = h[i]
-            glat[i], glon[i], error = qd2gd(qlat[i], qlon[i], alt, \
-                epoch, prec, folder + '/apexsh.dat')
+            glat[i], glon[i], error = qd2gd(qlat[i], qlon[i], alt, epoch, prec, apexshfile)
             if verbose:
                 print( 'QLON = %8.3f, ALT=%8.3f, QLAT=%8.3f, GLON=%8.3f, GLAT=%8.3f' % \
                     (qlon[i], alt, qlat[i], glon[i], glat[i]) )
@@ -114,4 +117,35 @@ class ApexFL:
 
 #
 # End of 'ApexFL'
+#####
+
+
+
+class Convert:
+
+
+    def __init__(self):
+
+        pass
+
+
+    def qdtogd(self, qlat=0, qlon=0, alt=0, epoch=2000., prec=0):
+
+        """
+            Convert quasi-dipole to geodetic coordinates
+        """
+
+        return qd2gd(qlat, qlon, alt, epoch, prec, apexshfile)
+
+
+    def gd2qd(self):
+
+        """
+            Convert geodetic to quasi-dipole coordinates
+        """
+
+        pass
+
+#
+# End of 'Convert'
 #####
