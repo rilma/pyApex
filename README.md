@@ -5,7 +5,7 @@ This app represents a wrapper to the [Apex model](http://onlinelibrary.wiley.com
 ### Installing
 
 ```
-python setup install
+python setup.py install
 ```
 
 ## Running the test
