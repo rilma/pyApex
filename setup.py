@@ -4,7 +4,7 @@ from numpy.distutils.core import Extension, setup
 
 sourcePath = 'source/'
 
-f77CompileArgs = ['-std=legacy', '-fno-automatic', '-O']
+f77CompileArgs = ['-std=legacy', '-fno-automatic', '-O', '-w']
 
 
 # Quasi-dipole magnetic field-line
