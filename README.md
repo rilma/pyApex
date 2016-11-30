@@ -26,6 +26,11 @@ python setup.py install
 (1.0490329265594482, -12.485759735107422, 72.6435317993164, 31408.029296875, 27464.94140625, -3504.1533203125, -14827.7548828125, 21.084653854370117)
 ```
 
+### Geomagnetic field lines
+After installation, run the example [script] (examples/example_pyapex.py) to print and plot the geodetic coordinates of the field lines in the equatorial E region. Here an output example:
+
+![alt tag] (figures/eqERegionFL.png)
+
 ## License
 
 This project is licensed under the [GNU License](LICENSE).
