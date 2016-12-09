@@ -3,16 +3,52 @@
 
 python module apexqd2gd ! in 
     interface  ! in :apexqd2gd
+        subroutine gd2qd(glat,glon,alt,epoch,vecflag,apexshfile,qlat,qlon,f1,f2,f) ! in :apexqd2gd:qd2gdcoord.f90
+            real(kind=4) intent(in) :: glat
+            real(kind=4) intent(in) :: glon
+            real(kind=4) intent(in) :: alt
+            real(kind=4) intent(in) :: epoch
+            integer(kind=4) intent(in) :: vecflag
+            character*256 intent(in) :: apexshfile
+            real(kind=4) intent(out) :: qlat
+            real(kind=4) intent(out) :: qlon
+            real(kind=4) dimension(2),intent(out) :: f1
+            real(kind=4) dimension(2),intent(out) :: f2
+            real(kind=4) intent(out) :: f
+        end subroutine gd2qd
+        subroutine gd2all(glat,glon,alt,hr,epoch,vecflag,apexshfile,qlat,qlon,mlat,mlon,f1,f2,f,d1,d2,d3,d,e1,e2,e3) ! in :apexqd2gd:qd2gdcoord.f90
+            real(kind=4) intent(in) :: glat
+            real(kind=4) intent(in) :: glon
+            real(kind=4) intent(in) :: alt
+            real(kind=4) intent(in) :: hr
+            real(kind=4) intent(in) :: epoch
+            integer(kind=4) intent(in) :: vecflag
+            character*256 intent(in) :: apexshfile
+            real(kind=4) intent(out) :: qlat
+            real(kind=4) intent(out) :: qlon
+            real(kind=4) intent(out) :: mlat
+            real(kind=4) intent(out) :: mlon
+            real(kind=4) dimension(2),intent(out) :: f1
+            real(kind=4) dimension(2),intent(out) :: f2
+            real(kind=4) intent(out) :: f
+            real(kind=4) dimension(3),intent(out) :: d1
+            real(kind=4) dimension(3),intent(out) :: d2
+            real(kind=4) dimension(3),intent(out) :: d3
+            real(kind=4) intent(out) :: d
+            real(kind=4) dimension(3),intent(out) :: e1
+            real(kind=4) dimension(3),intent(out) :: e2
+            real(kind=4) dimension(3),intent(out) :: e3
+        end subroutine gd2all
         subroutine qd2gd(qlat,qlon,alt,epoch,prec,apexshfile,glat,glon,error) ! in :apexqd2gd:qd2gdcoord.f90
-            real(kind=4), intent(in) :: qlat
-            real(kind=4), intent(in) :: qlon
-            real(kind=4), intent(in) :: alt
-            real(kind=4), intent(in) :: epoch
-            real(kind=4), intent(in) :: prec
-            character(256), intent(in) :: apexshfile
-            real(kind=4), intent(out) :: glat
-            real(kind=4), intent(out) :: glon
-            real(kind=4), intent(out) :: error
+            real(kind=4) intent(in) :: qlat
+            real(kind=4) intent(in) :: qlon
+            real(kind=4) intent(in) :: alt
+            real(kind=4) intent(in) :: epoch
+            real(kind=4) intent(in) :: prec
+            character*256 intent(in) :: apexshfile
+            real(kind=4) intent(out) :: glat
+            real(kind=4) intent(out) :: glon
+            real(kind=4) intent(out) :: error
         end subroutine qd2gd
     end interface 
 end python module apexqd2gd
