@@ -8,6 +8,8 @@ This app represents a wrapper to the [Apex model](http://onlinelibrary.wiley.com
 python setup.py install
 ```
 
+NOTE: It requires [TimeUtiltities] (https://github.com/rilma/TimeUtilities).
+
 ## Running the test
 
 ### Convert geodetic to quasi-dipole coordinates

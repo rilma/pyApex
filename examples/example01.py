@@ -5,6 +5,6 @@ if __name__ == '__main__':
 
         from pyapex import Convert
 
-        print(Convert.gdtoqd(0,0,0,2000,0))
+        print(Convert().gdtoqd(0,0,0,2000,1))
 
     example01()
