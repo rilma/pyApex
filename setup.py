@@ -20,15 +20,7 @@ ext1 = Extension( name='apex', \
         )
 
 
-# Geodetic to quasi-dipole coordinates
-#
-
-sources2 = []
-
-ext2 = None
-
-
-# Quasi-dipole to geodetic coordinates
+# Geodetic to Quasi-dipole to coordinates or viceversa
 #
 
 sources3 = []
@@ -43,7 +35,7 @@ ext3 = Extension( name='apexqd2gd', \
 if __name__ == '__main__':
 
     setup( name='pyapex', \
-        version='0.0.1', \
+        version='0.1.0', \
         author='Ronald Ilma', \
         author_email='rri5@cornell.edu', \
         description='Apex Model Apps', \

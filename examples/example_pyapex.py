@@ -19,21 +19,21 @@ if __name__ == '__main__':
 
         pn = f.add_subplot(111)
 
-        for h in arange(hlim[0], hlim[1], 10.):
+        for h in arange(hlim[0], hlim[1] + 10., 10.):
 
-            gc, qc = Obj.getFL(date=date, dlon=dlon, hateq=h, verbose=True)
+            gc, qc = Obj.getFL(date=date, dlon=dlon, hateq=h, verbose=False)
 
             x, y, z = gc['lat'], gc['alt'], gc['lon']
 
-            ind = where(y < hlim[0])
+            ind = where(y < (hlim[0] - 10.))
             if len(ind) > 0: x[ind], y[ind], z[ind] = nan, nan, nan
             pn.plot(x, y)
 
         strDate = 'DATE: {:4d}.{:03d}'.format(year, doy)
-        #strLoc = 'GEOG. LON.: {:6.2f}$^\circ$'.format(dlon)
         strLoc = 'GEOG. LON.: {:6.2f}$^\circ${:s}'.format(abs(dlon), 'E' if dlon > 0. else 'W') 
         title = '{:s}    -    {:s}'.format(strDate, strLoc)
         pn.set_title(title)
+        pn.set_ylim([hlim[0] - 1, hlim[1] + 1])
         pn.set_xlabel("Geog. Lat. ($^\circ$)")
         pn.set_ylabel("Altitude (km)")
         pn.invert_xaxis()
