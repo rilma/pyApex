@@ -8,7 +8,7 @@ This app represents a wrapper to the [Apex model](http://onlinelibrary.wiley.com
 python setup.py install
 ```
 
-NOTE: It requires [TimeUtiltities] (https://github.com/rilma/TimeUtilities).
+NOTE: It requires [TimeUtiltities](https://github.com/rilma/TimeUtilities).
 
 ## Running the test
 
@@ -46,7 +46,7 @@ NOTE: It requires [TimeUtiltities] (https://github.com/rilma/TimeUtilities).
 ```
 
 ### Geomagnetic field lines
-After installation, run the example [script] (examples/example_pyapex.py) to print and plot the geodetic coordinates of the field lines in the equatorial E region. Here an output example:
+After installation, run the example [script](examples/example_pyapex.py) to print and plot the geodetic coordinates of the field lines in the equatorial E region. Here an output example:
 
 ![alt tag] (figures/eqERegionFL.png)
 
